@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Web Page</title>
+    <style>
+        /* Resetting default styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Basic body styling */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+
+        /* Navigation Bar Styling */
+        .navbar {
+            background-color: #333;
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+
+        /* Hamburger Menu for Mobile */
+        .menu-toggle {
+            display: none;
+            font-size: 28px;
+            cursor: pointer;
+        }
+
+        .navbar .logo {
+            font-size: 24px;
+        }
+
+        .nav-link {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+        }
+
+        .nav-link a:hover {
+            background-color: #555;
+            border-radius: 5px;
+        }
+
+        /* Mobile Styles */
+        @media (max-width: 768px) {
+            .nav-link {
+                position: absolute;
+                top: 60px;
+                left: 0;
+                right: 0;
+                background-color: #333;
+                flex-direction: column;
+                gap: 10px;
+                padding: 20px 0;
+                opacity: 0;
+                transform: translateY(-100%);
+                display: none;
+            }
+
+            /* Open and close Animation*/
+            .nav-link.show {
+                display: flex;
+                opacity: 1;
+                transform: translateY(0);
+                animation: slide-down 0.3s ease forwards;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-link a {
+                text-align: center;
+                padding: 15px;
+            }
+        }
+
+        /* Slide down animation */
+        @keyframes slide-down {
+            from {
+                opacity: 0;
+                transform: translateY(-100%);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Slide up animation */
+        .nav-link.hide {
+            animation: slide-up 0.3s ease forwards;
+        }
+
+        @keyframes slide-up {
+            from {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            to {
+                opacity: 0;
+                transform: translateY(-100%);
+            }
+        }
+
+        /* Hero Section Styling */
+        .hero {
+            background-image: url('https://demo.xpeedstudio.com/marketov2/home5/wp-content/uploads/sites/5/2021/06/vegetables1-1.png');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .hero-text {
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin: 15px 0;
+        }
+
+        .hero button {
+            padding: 10px 20px;
+            background-color: #555;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .hero button:hover {
+            background-color: #777;
+        }
+
+        /* Card Section Styling */
+        .cards-section {
+            padding: 50px;
+            display: grid;
+            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        }
+
+        .card {
+            background-color: #f4f4f4;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .card img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .card h2 {
+            margin: 15px 0;
+            font-size: 24px;
+        }
+
+        /* Modal Styling */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 15% auto;
+            padding: 20px;
+            width: 80%;
+            max-width: 500px;
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .cards-section {
+                padding: 20px;
+            }
+
+            .nav-link {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo"><img src="images/logo.png" alt="logo"></div>
+        <div class="menu-toggle" id="mobile-menu">&#9776;</div>
+        <ul class="nav-link" id="nav-link">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-text">
+            <h1>Welcome to Our Website</h1>
+            <p>Creating responsive web pages with HTML, CSS, and JavaScript</p>
+            <button onclick="openModal()">Learn More</button>
+        </div>
+    </section>
+
+    <!-- Grid of Cards -->
+    <section class="cards-section">
+        <div class="card">
+            <img src="images/1.png" alt="Card Image">
+            <h2>Card Title 1</h2>
+            <p>This is the description of the card.</p>
+        </div>
+        <div class="card">
+            <img src="images/2.png" alt="Card Image">
+            <h2>Card Title 2</h2>
+            <p>This is the description of the card.</p>
+        </div>
+        <div class="card">
+            <img src="images/5.png" alt="Card Image">
+            <h2>Card Title 3</h2>
+            <p>This is the description of the card.</p>
+        </div>
+        <div class="card">
+            <img src="images/4.png" alt="Card Image">
+            <h2>Card Title 4</h2>
+            <p>This is the description of the card.</p>
+        </div>
+    </section>
+
+    <!-- Modal -->
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <p>Welcome to this simple responsive page demo!</p>
+        </div>
+    </div>
+
+    <script>
+        const mobile = document.getElementById("mobile-menu");
+        const navLinks = document.getElementById("nav-link");
+
+        // Toggle nav-link
+        mobile.addEventListener("click", () => {
+            if (navLinks.classList.contains("show")) {
+                navLinks.classList.add("hide");
+                setTimeout(() => {
+                    navLinks.classList.remove("show");
+                    navLinks.classList.remove("hide");
+                }, 300);
+            } else {
+                navLinks.classList.add("show");
+            }
+        });
+
+        // Modal Open
+        function openModal() {
+            document.getElementById("modal").style.display = "block";
+        }
+
+        // Modal Close
+        function closeModal() {
+            document.getElementById("modal").style.display = "none";
+        }
+
+        // modal auto close when click outside
+        window.onclick = function (event) {
+            const modal = document.getElementById("modal");
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+
+</body>
+
+</html>
