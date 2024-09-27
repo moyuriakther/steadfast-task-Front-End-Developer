@@ -1,9 +1,30 @@
-# React + Vite
+## Front-End Developer Task: Responsive Web Page
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### Live:https://66f6a302576d5e42b23bb392--steady-kangaroo-71bd71.netlify.app/
 
-Currently, two official plugins are available:
+1. Vanilla JavaScript
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-# steadfast-task-Front-End-Developer
+### Objective
+This project demonstrates the implementation of a responsive single-page website. The task is designed to evaluate core skills in front-end development, including the ability to translate design wireframes into interactive, responsive web elements using HTML5, CSS3, and Vanilla JavaScript.
+
+### Technologies Used
+HTML5
+CSS3
+Vanilla JavaScript
+
+### To Run This Project Locally 
+clone the repository
+Open the responsive.html file in a browser
+
+2. React Version:
+
+### Technologies Used
+React.js,
+TailwindCss
+
+### To Run This Project Locally 
+clone the repository
+cd responsive-website
+npm install
+npm run dev 
+
